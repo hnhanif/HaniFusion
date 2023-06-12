@@ -10,7 +10,7 @@
 
 void loadingAnimation()
 {
-    printf("\t\tLoading...");
+    printf("\n\t\tLoading...");
 
     for (int i = 0; i < 10; i++)
     {
