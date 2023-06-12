@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include "utilities/animation.h"
 #include "products/todo_list.h"
 #include "products/version_control.h"

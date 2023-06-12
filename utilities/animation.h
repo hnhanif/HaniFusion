@@ -1,3 +1,12 @@
+#ifdef _WIN32
+#include <windows.h>
+#define MY_SLEEP(ms) Sleep(ms)
+#elif __linux__
+#include <unistd.h>
+#define MY_SLEEP(ms) usleep((ms)*1000)
+#else
+#error "Unsupported operating system"
+#endif
 
 void loadingAnimation()
 {
@@ -7,7 +16,12 @@ void loadingAnimation()
     {
         printf(".");
         fflush(stdout);
-        usleep(500000); // Adjust the usleep value for the desired animation speed (in microseconds)
+
+#ifdef _WIN32
+        MY_SLEEP(500); // Sleep for 500 milliseconds on Windows
+#elif __linux__
+        MY_SLEEP(500000); // Sleep for 500,000 microseconds (0.5 seconds) on Linux
+#endif
     }
 
     printf("\n");
